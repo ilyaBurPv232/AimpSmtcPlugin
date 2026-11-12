@@ -89,7 +89,7 @@ void LogHr(const wchar_t* where, HRESULT hr) {
 void LogHresultException(const wchar_t* where, const winrt::hresult_error& ex) {
     wchar_t buf[512];
     swprintf_s(buf, L"%s: winrt::hresult_error 0x%08X (%s)",
-               where, (unsigned)ex.code(), ex.message().c_str());
+            where, (unsigned)ex.code(), ex.message().c_str());
     Log(buf);
 }
 
@@ -176,7 +176,7 @@ void UpdateMetadataFromPlayer() {
     winrt::Windows::Storage::Streams::RandomAccessStreamReference thumb{ nullptr };
     IAIMPImageContainer* container = nullptr;
     if (SUCCEEDED(info->GetValueAsObject(AIMP_FILEINFO_PROPID_ALBUMART,
-                                         IID_IAIMPImageContainer, (void**)&container)) && container) {
+                                        IID_IAIMPImageContainer, (void**)&container)) && container) {
         thumb = ContainerToStreamRef(container);
         container->Release();
     }
@@ -350,7 +350,7 @@ public:
             UpdateTimelineFromPlayer();
         }
         else if (Message == AIMP_MSG_EVENT_PLAYER_UPDATE_POSITION ||
-                 Message == AIMP_MSG_EVENT_PLAYER_UPDATE_POSITION_HR) {
+                Message == AIMP_MSG_EVENT_PLAYER_UPDATE_POSITION_HR) {
             UpdateTimelineFromPlayer();
         }
     }
